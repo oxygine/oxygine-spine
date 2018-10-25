@@ -179,10 +179,12 @@
     <ClCompile Include="..\..\..\dependencies\spine\src\spine\VertexAttachment.cpp" />
     <ClCompile Include="..\..\..\dependencies\spine\src\spine\VertexEffect.cpp" />
     <ClCompile Include="..\..\..\src\oxygine-spine\spine.cpp" />
+    <ClCompile Include="..\src\test.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="../src/example.h" />
     <ClInclude Include="..\..\..\src\oxygine-spine\spine.h" />
+    <ClInclude Include="..\src\test.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

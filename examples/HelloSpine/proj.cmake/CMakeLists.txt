@@ -15,7 +15,7 @@ link_directories(${OXYGINE_SPINE_LIBRARY_DIRS})
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${OXYGINE_CXX_FLAGS}")
 
-add_executable(HelloSpine ../src/example.cpp ../src/main.cpp  ../src/example.h )
+add_executable(HelloSpine ../src/example.cpp ../src/main.cpp  ../src/example.h  ../src/test.h  ../src/test.cpp )
 target_link_libraries(HelloSpine ${OXYGINE_CORE_LIBS}  ${OXYGINE_SPINE_LIBS})
 
 

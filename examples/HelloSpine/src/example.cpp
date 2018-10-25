@@ -1,6 +1,7 @@
 #include "oxygine-framework.h"
 #include <functional>
 #include "oxygine-spine.h"
+#include "test.h"
 
 using namespace oxygine;
 
@@ -15,12 +16,44 @@ spine::Atlas* atlas = 0;
 spine::Skeleton *skeleton = 0;
 oxspine::spSpineActor actor;
 
+
+
+
 //called from main.cpp
 void example_init()
 {
-    key::init();
+    Test::init();
 
+    spTest test = new Test;
     
+    test->addButton("Start Walk", []() {
+        animationState->setAnimation(1, "walk", true);
+    });
+
+    test->addButton("Stop Walk", []() {
+        animationState->setEmptyAnimation(1, 0.15f);
+    });
+
+    test->addButton("Start Shoot", []() {
+        animationState->setAnimation(2, "shoot", true);
+    });
+
+    test->addButton("Stop Shoot", []() {
+        animationState->setEmptyAnimation(2, 0.15f);
+    });
+
+    test->addButton("Shoot", []() {
+        animationState->addAnimation(3, "shoot", false, 0.0f);
+        animationState->addEmptyAnimation(3, 0.1f, 0.0f);
+    });
+
+    test->addButton("Jump", []() {
+        animationState->addAnimation(4, "jump", false, 0.0f);
+        animationState->addEmptyAnimation(4, 0.1f, 0.0f);
+    });
+
+    test->show();
+        
     oxspine::init();
 
 
@@ -36,9 +69,11 @@ void example_init()
 
 
     animationStateData = new spine::AnimationStateData(skeletonData);
-
+    
     animationState = new spine::AnimationState(animationStateData);
     animationState->setAnimation(0, "idle", true);
+
+    
     
 
     skeleton = new spine::Skeleton(skeletonData);
@@ -60,29 +95,6 @@ void example_init()
 //called each frame from main.cpp
 void example_update()
 {
-    
-    if (key::wasPressed(SDL_SCANCODE_RETURN))
-    {
-        animationState->setAnimation(1, "walk", true);
-    }
-
-    if (key::wasReleased(SDL_SCANCODE_RETURN))
-    {
-        animationState->setEmptyAnimation(1, 0.15f);
-    }
-
-
-
-    if (key::wasPressed(SDL_SCANCODE_SPACE))
-    {
-        animationState->setAnimation(2, "shoot", true);
-    }
-
-    if (key::wasReleased(SDL_SCANCODE_SPACE))
-    {
-        animationState->setEmptyAnimation(2, 0.15f);
-    }
-
 }
 
 //called each frame from main.cpp
@@ -108,7 +120,6 @@ void example_destroy()
     delete atlas;
     atlas = 0;
 
-    
-    key::release();
     oxspine::free();
+    Test::free();
 }
