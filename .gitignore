@@ -1,0 +1,7 @@
+examples/HelloSpine/proj.win32/Debug_*
+examples/HelloSpine/proj.win32/.vs/
+examples/HelloSpine/proj.cmake/build_emsc/
+examples/HelloSpine/proj.android/build/
+examples/HelloSpine/proj.android/.externalNativeBuild/
+examples/HelloSpine/proj.android/.gradle/
+examples/HelloSpine/data/*.dll

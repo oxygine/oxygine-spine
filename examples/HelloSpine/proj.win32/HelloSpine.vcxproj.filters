@@ -1,0 +1,225 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="oxygine-spine">
+      <UniqueIdentifier>{fb4a037f-ec5c-4d44-94cd-bbad3b6bffa2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="oxygine-spine\lib">
+      <UniqueIdentifier>{ef0e313d-ffc8-4c72-8a7a-8a77241b9f12}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="../src/example.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="../src/main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\oxygine-spine\spine.cpp">
+      <Filter>oxygine-spine</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dependencies\spine\src\spine\Animation.cpp">
+      <Filter>oxygine-spine\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dependencies\spine\src\spine\AnimationState.cpp">
+      <Filter>oxygine-spine\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dependencies\spine\src\spine\AnimationStateData.cpp">
+      <Filter>oxygine-spine\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dependencies\spine\src\spine\Atlas.cpp">
+      <Filter>oxygine-spine\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dependencies\spine\src\spine\AtlasAttachmentLoader.cpp">
+      <Filter>oxygine-spine\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dependencies\spine\src\spine\Attachment.cpp">
+      <Filter>oxygine-spine\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dependencies\spine\src\spine\AttachmentLoader.cpp">
+      <Filter>oxygine-spine\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dependencies\spine\src\spine\AttachmentTimeline.cpp">
+      <Filter>oxygine-spine\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dependencies\spine\src\spine\Bone.cpp">
+      <Filter>oxygine-spine\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dependencies\spine\src\spine\BoneData.cpp">
+      <Filter>oxygine-spine\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dependencies\spine\src\spine\BoundingBoxAttachment.cpp">
+      <Filter>oxygine-spine\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dependencies\spine\src\spine\ClippingAttachment.cpp">
+      <Filter>oxygine-spine\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dependencies\spine\src\spine\ColorTimeline.cpp">
+      <Filter>oxygine-spine\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dependencies\spine\src\spine\Constraint.cpp">
+      <Filter>oxygine-spine\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dependencies\spine\src\spine\CurveTimeline.cpp">
+      <Filter>oxygine-spine\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dependencies\spine\src\spine\DeformTimeline.cpp">
+      <Filter>oxygine-spine\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dependencies\spine\src\spine\DrawOrderTimeline.cpp">
+      <Filter>oxygine-spine\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dependencies\spine\src\spine\Event.cpp">
+      <Filter>oxygine-spine\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dependencies\spine\src\spine\EventData.cpp">
+      <Filter>oxygine-spine\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dependencies\spine\src\spine\EventTimeline.cpp">
+      <Filter>oxygine-spine\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dependencies\spine\src\spine\Extension.cpp">
+      <Filter>oxygine-spine\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dependencies\spine\src\spine\IkConstraint.cpp">
+      <Filter>oxygine-spine\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dependencies\spine\src\spine\IkConstraintData.cpp">
+      <Filter>oxygine-spine\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dependencies\spine\src\spine\IkConstraintTimeline.cpp">
+      <Filter>oxygine-spine\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dependencies\spine\src\spine\Json.cpp">
+      <Filter>oxygine-spine\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dependencies\spine\src\spine\LinkedMesh.cpp">
+      <Filter>oxygine-spine\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dependencies\spine\src\spine\MathUtil.cpp">
+      <Filter>oxygine-spine\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dependencies\spine\src\spine\MeshAttachment.cpp">
+      <Filter>oxygine-spine\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dependencies\spine\src\spine\PathAttachment.cpp">
+      <Filter>oxygine-spine\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dependencies\spine\src\spine\PathConstraint.cpp">
+      <Filter>oxygine-spine\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dependencies\spine\src\spine\PathConstraintData.cpp">
+      <Filter>oxygine-spine\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dependencies\spine\src\spine\PathConstraintMixTimeline.cpp">
+      <Filter>oxygine-spine\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dependencies\spine\src\spine\PathConstraintPositionTimeline.cpp">
+      <Filter>oxygine-spine\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dependencies\spine\src\spine\PathConstraintSpacingTimeline.cpp">
+      <Filter>oxygine-spine\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dependencies\spine\src\spine\PointAttachment.cpp">
+      <Filter>oxygine-spine\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dependencies\spine\src\spine\RegionAttachment.cpp">
+      <Filter>oxygine-spine\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dependencies\spine\src\spine\RotateTimeline.cpp">
+      <Filter>oxygine-spine\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dependencies\spine\src\spine\RTTI.cpp">
+      <Filter>oxygine-spine\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dependencies\spine\src\spine\ScaleTimeline.cpp">
+      <Filter>oxygine-spine\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dependencies\spine\src\spine\ShearTimeline.cpp">
+      <Filter>oxygine-spine\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dependencies\spine\src\spine\Skeleton.cpp">
+      <Filter>oxygine-spine\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dependencies\spine\src\spine\SkeletonBinary.cpp">
+      <Filter>oxygine-spine\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dependencies\spine\src\spine\SkeletonBounds.cpp">
+      <Filter>oxygine-spine\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dependencies\spine\src\spine\SkeletonClipping.cpp">
+      <Filter>oxygine-spine\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dependencies\spine\src\spine\SkeletonData.cpp">
+      <Filter>oxygine-spine\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dependencies\spine\src\spine\SkeletonJson.cpp">
+      <Filter>oxygine-spine\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dependencies\spine\src\spine\Skin.cpp">
+      <Filter>oxygine-spine\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dependencies\spine\src\spine\Slot.cpp">
+      <Filter>oxygine-spine\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dependencies\spine\src\spine\SlotData.cpp">
+      <Filter>oxygine-spine\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dependencies\spine\src\spine\SpineObject.cpp">
+      <Filter>oxygine-spine\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dependencies\spine\src\spine\TextureLoader.cpp">
+      <Filter>oxygine-spine\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dependencies\spine\src\spine\Timeline.cpp">
+      <Filter>oxygine-spine\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dependencies\spine\src\spine\TransformConstraint.cpp">
+      <Filter>oxygine-spine\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dependencies\spine\src\spine\TransformConstraintData.cpp">
+      <Filter>oxygine-spine\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dependencies\spine\src\spine\TransformConstraintTimeline.cpp">
+      <Filter>oxygine-spine\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dependencies\spine\src\spine\TranslateTimeline.cpp">
+      <Filter>oxygine-spine\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dependencies\spine\src\spine\Triangulator.cpp">
+      <Filter>oxygine-spine\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dependencies\spine\src\spine\TwoColorTimeline.cpp">
+      <Filter>oxygine-spine\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dependencies\spine\src\spine\Updatable.cpp">
+      <Filter>oxygine-spine\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dependencies\spine\src\spine\VertexAttachment.cpp">
+      <Filter>oxygine-spine\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\dependencies\spine\src\spine\VertexEffect.cpp">
+      <Filter>oxygine-spine\lib</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="../src/example.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\oxygine-spine\spine.h">
+      <Filter>oxygine-spine</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
