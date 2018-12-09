@@ -17,6 +17,7 @@ spine::Skeleton *skeleton = 0;
 oxspine::spSpineActor actor;
 
 
+#define DRAGON_TEST
 
 
 //called from main.cpp
@@ -59,19 +60,31 @@ void example_init()
 
     file::buffer bf;
 
+#ifdef DRAGON_TEST
+    atlas = new spine::Atlas("spine/dragon/dragon.atlas", oxspine::getTextureLoader());
+
+    spine::SkeletonJson json(atlas);
+    json.setScale(1);
+
+    skeletonData = json.readSkeletonDataFile("spine/dragon/dragon-ess.json");
+#else
     atlas = new spine::Atlas("spine/spineboy/spineboy.atlas", oxspine::getTextureLoader());
 
     spine::SkeletonBinary binary(atlas);
     binary.setScale(1);
 
-    
     skeletonData = binary.readSkeletonDataFile("spine/spineboy/spineboy-ess.skel");
-
+#endif
 
     animationStateData = new spine::AnimationStateData(skeletonData);
     
     animationState = new spine::AnimationState(animationStateData);
-    animationState->setAnimation(0, "idle", true);
+
+#ifdef DRAGON_TEST
+    animationState->setAnimation(0, "flying", true);
+#else
+    animationState->setAnimation(0, "flying", true);
+#endif
 
     
     
