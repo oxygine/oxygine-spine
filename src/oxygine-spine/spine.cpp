@@ -156,6 +156,7 @@ namespace oxspine
         STDRenderer *renderer = STDRenderer::getCurrent();
         renderer->setUberShaderProgram(&STDRenderer::uberShader);
         renderer->setShaderFlags(0);
+        renderer->setUseCustomIndices(true);
         //renderer->setTransform(rs.transform);
         //renderer->setViewProj(renderer->getViewProjection());
         
@@ -166,6 +167,10 @@ namespace oxspine
 
         rsCache().reset();
 
+        std::vector<vertexPCT2> vertices;
+        std::vector<unsigned short> indices;
+
+        int baseIndex = 0;
         for (size_t i = 0, n = _skeleton->getSlots().size(); i < n; ++i) 
         {
             Slot* slot = _skeleton->getDrawOrder()[i];
@@ -222,6 +227,8 @@ namespace oxspine
             color.a = (color.a * alpha) / 255;
             color = color.premultiplied();
 
+            unsigned int colorRGBA = color.rgba();
+
             // Fill the vertices array, indices, and texture depending on the type of attachment
             if (attachment->getRTTI().isExactly(RegionAttachment::rtti))
             {
@@ -254,54 +261,93 @@ namespace oxspine
                     vertex.x = p.x;
                     vertex.y = p.y;
                     vertex.z = 0;
-                    vertex.color = color.rgba();
+                    vertex.color = colorRGBA;
                     vertex.u = regionAttachment->getUVs()[l];
                     vertex.v = regionAttachment->getUVs()[l + 1];
                 }
 
                 vertexPCT2 a = v[3];
-                v[3] = v[2];
-                v[2] = a;
+                //v[3] = v[2];
+                //v[2] = a;
 
                 renderer->addVertices(v, sizeof(v));
+                unsigned short indices[6] = { 
+                    0 + baseIndex,
+                    1 + baseIndex,
+                    2 + baseIndex,
+                    2 + baseIndex,
+                    3 + baseIndex,
+                    0 + baseIndex};
+
+                renderer->addIndices(indices, sizeof(indices));
+                baseIndex += 4;
             }
-            else if (attachment->getRTTI().isExactly(MeshAttachment::rtti)) {
-                // Cast to an spMeshAttachment so we can get the rendererObject
-                // and compute the world vertices
-                logs::messageln("mesh render not implemented");
-                /*
+            else if (attachment->getRTTI().isExactly(MeshAttachment::rtti))
+            {                
                 MeshAttachment* mesh = (MeshAttachment*)attachment;
 
-                // Ensure there is enough room for vertices
-                vertices.setSize(mesh->getWorldVerticesLength() / 2, Vertex());
+                
+                size_t numVertices = mesh->getWorldVerticesLength() / 2;
+                vertices.resize(numVertices);
 
                 // Our engine specific Texture is stored in the AtlasRegion which was
                 // assigned to the attachment on load. It represents the texture atlas
                 // page that contains the image the region attachment is mapped to.
-                texture = (Texture*)((AtlasRegion*)regionAttachment->getRendererObject())->page->getRendererObject();
+                //texture = (Texture*)((AtlasRegion*)regionAttachment->getRendererObject())->page->getRendererObject();
+
+                NativeTexture* texture = (NativeTexture*)((AtlasRegion*)mesh->getRendererObject())->page->getRendererObject();
+                if (currentTexture != texture)
+                {
+                    renderer->flush();
+                    currentTexture = texture;
+                    rsCache().setTexture(0, texture);
+                }
 
                 // Computed the world vertices positions for the vertices that make up
                 // the mesh attachment. This assumes the world transform of the
                 // bone to which the slot (and hence attachment) is attached has been calculated
                 // before rendering via Skeleton::updateWorldTransform(). The vertex positions will
                 // be written directly into the vertices array, with a stride of sizeof(Vertex)
-                size_t numVertices = mesh->getWorldVerticesLength() / 2;
-                mesh->computeWorldVertices(slot, 0, numVertices, vertices.buffer(), 0, sizeof(Vertex));
+                
+                
+                mesh->computeWorldVertices(*slot, 0, mesh->getWorldVerticesLength(), (float*)&vertices.front(), 0, sizeof(vertexPCT2) / sizeof(float));
+
+                Matrix transform = rs.transform;
 
                 // Copy color and UVs to the vertices
-                for (size_t j = 0, l = 0; j < numVertices; j++, l += 2) {
-                    Vertex&amp; vertex = vertices[j];
-                    vertex.color.set(tint);
-                    vertex.u = regionAttachment->getUVs[l];
-                    vertex.v = regionAttachment->getUVs[l + 1];
+                for (size_t j = 0, l = 0; j < numVertices; j++, l += 2) 
+                {
+                    vertexPCT2& vertex = vertices[j];
+
+                    Vector3 pos = Vector3(vertex.x, vertex.y, vertex.z);
+                    pos = transform.transformVec3(pos);
+
+                    vertex.x = pos.x;
+                    vertex.y = pos.y;
+                    vertex.z = pos.z;
+                    vertex.color = colorRGBA;
+                    vertex.u = mesh->getUVs()[l];
+                    vertex.v = mesh->getUVs()[l + 1];
                 }
 
-                // set the indices, 2 triangles forming a quad
-                indices = quadIndices;
-                */
+                indices.clear();
+
+                unsigned short* sind = mesh->getTriangles().buffer();
+                int numInd = mesh->getTriangles().size();
+
+                for (int i = 0; i < numInd; ++i)
+                {
+                    indices.push_back(sind[i] + baseIndex);
+                }
+
+                renderer->addVertices(&vertices.front(), vertices.size() * sizeof(vertexPCT2));
+                renderer->addIndices(&indices.front(), indices.size() * 2);
+
+                baseIndex += vertices.size();
             }       
         }
 
         renderer->flush();
+        renderer->setUseCustomIndices(false);
     }
 }
